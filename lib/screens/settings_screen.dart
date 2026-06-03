@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/settings_service.dart';
 
-/// Tela de Configurações — persiste preferências com SharedPreferences.
-///
-/// Todas as alterações são salvas imediatamente e carregadas ao abrir o app.
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
@@ -20,7 +17,6 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 8),
         children: [
-          // ── Aparência ──────────────────────────────────────────────────
           _SectionHeader(title: 'Aparência'),
           _Card(
             children: [
@@ -34,7 +30,6 @@ class SettingsScreen extends StatelessWidget {
             ],
           ),
 
-          // ── Idioma ────────────────────────────────────────────────────
           _SectionHeader(title: 'Idioma'),
           _Card(
             children: [
@@ -64,7 +59,6 @@ class SettingsScreen extends StatelessWidget {
             ],
           ),
 
-          // ── Notificações ──────────────────────────────────────────────
           _SectionHeader(title: 'Notificações'),
           _Card(
             children: [
@@ -78,7 +72,6 @@ class SettingsScreen extends StatelessWidget {
             ],
           ),
 
-          // ── Nota sobre persistência ───────────────────────────────────
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
             child: Card(
@@ -115,7 +108,6 @@ class SettingsScreen extends StatelessWidget {
   }
 }
 
-// ── Widgets auxiliares ──────────────────────────────────────────────────────
 
 class _SectionHeader extends StatelessWidget {
   final String title;

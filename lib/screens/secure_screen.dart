@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/secure_storage_service.dart';
 
-/// Tela de Armazenamento Seguro — token de autenticação criptografado
-/// com flutter_secure_storage (Keystore/Keychain do SO).
 class SecureScreen extends StatefulWidget {
   const SecureScreen({super.key});
 
@@ -80,7 +78,6 @@ class _SecureScreenState extends State<SecureScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // ── Banner explicativo ──────────────────────────────────────
             Card(
               color: Theme.of(context).colorScheme.primaryContainer,
               child: Padding(
@@ -119,7 +116,6 @@ class _SecureScreenState extends State<SecureScreen> {
             ),
             const SizedBox(height: 20),
 
-            // ── Campo do token ──────────────────────────────────────────
             TextField(
               controller: _controller,
               obscureText: _obscureToken,
@@ -139,7 +135,6 @@ class _SecureScreenState extends State<SecureScreen> {
             ),
             const SizedBox(height: 16),
 
-            // ── Botões ──────────────────────────────────────────────────
             if (_loading)
               const Center(
                 child: Padding(
@@ -174,7 +169,6 @@ class _SecureScreenState extends State<SecureScreen> {
                 ],
               ),
 
-            // ── Exibição do token recuperado ────────────────────────────
             if (_tokenExibido != null) ...[
               const SizedBox(height: 20),
               Card(

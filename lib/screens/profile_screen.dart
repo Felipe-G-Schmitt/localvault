@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../models/user_profile.dart';
 
-/// Tela de Perfil do Usuário — dados persistidos com Hive + TypeAdapter.
-///
-/// Implementa o direito ao esquecimento (LGPD, art. 18) com botão de exclusão
-/// que remove completamente o UserProfile do box Hive.
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -46,7 +42,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final hoje = DateTime.now().toIso8601String().substring(0, 10);
 
     if (_box.isEmpty) {
-      // Cria novo perfil
       await _box.add(UserProfile(
         nome: nome,
         email: email,
@@ -54,7 +49,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         pontuacao: pontuacao,
       ));
     } else {
-      // Atualiza perfil existente
       final p = _box.getAt(0)!;
       p.nome = nome;
       p.email = email;
@@ -125,7 +119,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // ValueListenableBuilder garante atualização automática quando o box muda
     return ValueListenableBuilder(
       valueListenable: _box.listenable(),
       builder: (context, Box<UserProfile> box, _) {
@@ -149,7 +142,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // ── Exibição do perfil salvo ─────────────────────────────
                 if (profile != null) ...[
                   Card(
                     color: Theme.of(context).colorScheme.primaryContainer,
@@ -220,7 +212,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const SizedBox(height: 16),
                 ],
 
-                // ── Formulário ───────────────────────────────────────────
                 Form(
                   key: _formKey,
                   child: Column(
@@ -272,7 +263,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 const SizedBox(height: 20),
 
-                // ── Botões de ação ───────────────────────────────────────
                 FilledButton.icon(
                   onPressed: _salvarPerfil,
                   icon: const Icon(Icons.save_outlined),

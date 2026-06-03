@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Gerencia as preferências do usuário usando SharedPreferences.
-/// Estende ChangeNotifier para integrar com o Provider e refletir mudanças
-/// na UI imediatamente (ex: troca de tema escuro/claro).
 class SettingsService extends ChangeNotifier {
-  // Chaves utilizadas no SharedPreferences
   static const _keyDarkMode = 'dark_mode';
   static const _keyLanguage = 'language';
   static const _keyNotifications = 'notifications';
@@ -14,15 +10,10 @@ class SettingsService extends ChangeNotifier {
   String _language = 'Português';
   bool _notifications = true;
 
-  // ---------- Getters ----------
-
   bool get darkMode => _darkMode;
   String get language => _language;
   bool get notifications => _notifications;
 
-  // ---------- Carregamento inicial ----------
-
-  /// Lê todas as preferências salvas e notifica os widgets ouvintes.
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
     _darkMode = prefs.getBool(_keyDarkMode) ?? false;
@@ -30,8 +21,6 @@ class SettingsService extends ChangeNotifier {
     _notifications = prefs.getBool(_keyNotifications) ?? true;
     notifyListeners();
   }
-
-  // ---------- Setters com persistência ----------
 
   Future<void> setDarkMode(bool value) async {
     _darkMode = value;

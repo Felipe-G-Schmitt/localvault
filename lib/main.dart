@@ -8,10 +8,8 @@ import 'screens/home_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Inicializa Hive e abre os boxes necessários
   await StorageService.init();
 
-  // Executa migração de dados (bônus)
   final migration = MigrationService();
   await migration.migrate();
 

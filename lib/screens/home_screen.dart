@@ -3,7 +3,6 @@ import 'settings_screen.dart';
 import 'profile_screen.dart';
 import 'secure_screen.dart';
 
-/// Tela principal com navegação inferior entre as três seções do app.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 

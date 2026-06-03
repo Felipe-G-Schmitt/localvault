@@ -1,13 +1,4 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: type=lint
-// Escrito manualmente seguindo o padrão de saída do build_runner.
-// Para regenerar: dart run build_runner build --delete-conflicting-outputs
-
 part of 'user_profile.dart';
-
-// **************************************************************************
-// TypeAdapterGenerator
-// **************************************************************************
 
 class UserProfileAdapter extends TypeAdapter<UserProfile> {
   @override

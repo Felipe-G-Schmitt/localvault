@@ -2,8 +2,6 @@ import 'package:hive/hive.dart';
 
 part 'user_profile.g.dart';
 
-/// Modelo de perfil do usuário armazenado no Hive.
-/// O TypeAdapter é gerado pelo build_runner (user_profile.g.dart).
 @HiveType(typeId: 1)
 class UserProfile extends HiveObject {
   @HiveField(0)
@@ -13,7 +11,7 @@ class UserProfile extends HiveObject {
   String email;
 
   @HiveField(2)
-  String dataCadastro; // formato: 'YYYY-MM-DD'
+  String dataCadastro;
 
   @HiveField(3)
   int pontuacao;
